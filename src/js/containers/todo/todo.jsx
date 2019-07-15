@@ -11,6 +11,7 @@ import Select from '../../components/select/select';
 import {CHOICE_IMPORTANCE, IMPORTANCE} from '../../config/const';
 
 import styled from "styled-components";
+import PropTypes from "prop-types";
 
 const FooterFilter = styled.div`
     height: 60px;
@@ -128,6 +129,18 @@ class ToDo extends Component {
       </TodoWrapper>
     );
   }
+}
+
+ToDo.propTypes = {
+  tasks: PropTypes.array,
+  completeTask: PropTypes.func,
+  removeTask: PropTypes.func,
+}
+
+ToDo.defaultProps = {
+  tasks: [],
+  completeTask: () => {},
+  removeTask: () => {},
 }
 
 export default connect(({ tasks, filters }) => ({
